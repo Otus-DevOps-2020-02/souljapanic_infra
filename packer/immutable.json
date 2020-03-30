@@ -1,0 +1,57 @@
+{
+    "variables": {
+        "project_id": "",
+    	"source_image_family": "",
+	"zone": "",
+	"ssh_username": "",
+	"machine_type": "f1-micro",
+	"image_description": "",
+	"disk_size": "10",
+	"disk_type": "pd-standard",
+	"network": "default",
+	"tags": ""
+    },
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `project_id`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "image_family": "reddit-full",
+            "source_image_family": "{{user `source_image_family`}}",
+            "zone": "{{user `zone`}}",
+            "ssh_username": "{{user `ssh_username`}}",
+            "machine_type": "{{user `machine_type`}}",
+	    "image_description": "{{user `image_description`}}",
+	    "disk_size": "{{user `disk_size`}}",
+	    "disk_type": "{{user `disk_type`}}",
+	    "network": "{{user `networ`}}",
+	    "tags": "{{user `tags`}}"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_ruby.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+	{
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+	{
+	    "type": "shell",
+	    "script": "scripts/deploy.sh",
+	    "execute_command": "{{.Path}}"
+	},
+	{
+            "type": "file",
+            "source": "files/app.service",
+            "destination": "/tmp/app.service"
+        },
+	{
+            "type": "shell",
+            "inline": ["sudo mv /tmp/app.service /etc/systemd/system/app.service","sudo chmod 644 /etc/systemd/system/app.service","sudo systemctl daemon-reload","sudo systemctl enable app.service"]
+        }
+    ]
+}
