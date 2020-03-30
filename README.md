@@ -102,3 +102,38 @@ someinternalhost_IP = 10.132.0.6
 * Создано правило firewall (vpn-18314) для доступа к VPN на bastion
 * В настройки bastion в консоли добавлен тег сети vpn-18314
 * WEB интерфейс доступе по url: https://35.210.213.90.sslip.io/login
+
+
+### cloud-testapp
+
+#### Настройка системы и развёртывание приложения
+
+##### Шаги настройки и развёртывания:
+
+```
+* Установка ruby с помощью сценария: install_ruby.sh
+* Установка mongodb с помощью сценария: install_mongodb.sh
+* Развёртывание приложения с помощью сценария: deploy.sh
+```
+
+#### Дополнительное задание:
+
+##### Команды для выполнения дополнительно задания:
+
+```
+* Создание instance и использование startup-script-url: gcloud compute instances create reddit-app-test --scopes storage-ro --metadata startup-script-url=gs://soulja_infra_bucket/startup_script.sh --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server-test --restart-on-failure
+* Создание правила firewall для instance puma-server-test: gcloud compute firewall-rules create puma-server-test --allow=tcp:9292 --direction=INGRESS --target-tags=puma-server-test
+```
+
+#### Проверка instance:
+
+```
+testapp_IP = 35.187.126.53
+testapp_port = 9292
+```
+
+#### Проверка startup-script%
+
+```
+* sudo journalctl -u google-startup-scripts.service
+```
