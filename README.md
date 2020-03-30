@@ -137,3 +137,38 @@ testapp_port = 9292
 ```
 * sudo journalctl -u google-startup-scripts.service
 ```
+
+### packer-base
+
+#### Основное задание:
+
+```
+* Был разобран принцип работы Packer builder
+* Был разобран принци работы Packer provisioners
+* Были подготовлены (изменены) сценарии для установки Ruby (packer/scripts/install_ruby.sh) и Mongo (packer/scripts/install_mongodb.sh)
+* Был собран образ семейства reddit-base с ruby и mongo
+```
+
+##### Команды для сборки образа:
+
+* packer validate packer/ubuntu16.json - проверка корректности файла конфигурации
+* packer build packer/ubuntu16.json - сборка образа
+
+#### Дополнительное задание:
+
+```
+* Был разобран принцип работы variables
+* Подготовлен пример файла переменных packer/variables.json.example
+* Был подготовлен файл конфигурации для Immutable infrastructure и собран образ семейства reddit-full
+* Был подготовлен systemd unit для запуска приложения при старте instance (packer/files/app.service)
+* Был подготовлен сценарий config-scripts/create-reddit-vm.sh для заказа instance из образа reddit-full и настройки firewall
+```
+
+##### Команды для сборки образа:
+
+* packer validate -var-file=packer/variables.json packer/ubuntu16.json - проверка корректности файла конфигурации и переменных
+* packer build -var-file=packer/variables.json packer/immutable.json - сборка образа
+
+##### Заказ instance с помощью сценария config-scripts/create-reddit-vm.sh
+
+* ./config-scripts/create-reddit-vm.sh
