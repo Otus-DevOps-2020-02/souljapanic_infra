@@ -15,7 +15,8 @@ provider "google" {
 resource "google_compute_instance" "app" {
   name = "reddit-app"
   machine_type = "g1-small"
-  zone = "europe-west1-d"
+#  zone = "europe-west1-d"
+  zone = var.zone
   tags = ["reddit-app"]
 
   boot_disk {
@@ -41,7 +42,8 @@ resource "google_compute_instance" "app" {
     host = self.network_interface[0].access_config[0].nat_ip
     user = "den_pirozhkov"
     agent = false
-    private_key = file("~/.ssh/den_pirozhkov")
+#    private_key = file("~/.ssh/den_pirozhkov")
+    private_key = file(var.private_key_path)
   }
 
   provisioner "file" {
