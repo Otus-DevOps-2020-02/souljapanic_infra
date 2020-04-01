@@ -18,3 +18,7 @@ variable zone {
   description = "Zone"
   default     = "europe-west1-d"
 }
+variable "public_keys" {
+  type        = list
+  description = "Pub Keys"
+}

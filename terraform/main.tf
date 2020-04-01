@@ -33,7 +33,7 @@ resource "google_compute_instance" "app" {
   }
 
   metadata = {
-    #    ssh-keys = "den_pirozhkov:${file("~/.ssh/id_rsa.pub")}"
+    #    ssh-keys = "den_pirozhkov:${file("~/.ssh/den_pirozhkov.pub")}"
     ssh-keys = "den_pirozhkov:${file(var.public_key_path)}"
   }
 
@@ -55,6 +55,11 @@ resource "google_compute_instance" "app" {
     script = "files/deploy.sh"
   }
 
+}
+
+resource "google_compute_project_metadata_item" "ssh-keys" {
+  key   = "ssh-keys"
+  value = join("\n", var.public_keys)
 }
 
 resource "google_compute_firewall" "firewall_puma" {
