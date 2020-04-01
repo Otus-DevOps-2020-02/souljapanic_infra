@@ -11,14 +11,9 @@ resource "google_compute_target_pool" "default" {
   region  = var.region
   project = var.project
 
-  instances = [
-    "europe-west1-d/reddit-app",
-    "europe-west1-d/reddit-app2"
-  ]
+  instances = [for app in google_compute_instance.app : app.self_link]
 
-  health_checks = [
-    google_compute_http_health_check.default.name,
-  ]
+  health_checks = [google_compute_http_health_check.default.name]
 }
 
 resource "google_compute_http_health_check" "default" {

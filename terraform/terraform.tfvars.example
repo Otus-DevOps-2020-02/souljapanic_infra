@@ -6,3 +6,4 @@ public_keys = [
   "user1:<key user1>",
   "user2:<key user2>"
 ]
+countIns = 2

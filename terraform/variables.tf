@@ -22,3 +22,7 @@ variable "public_keys" {
   type        = list
   description = "Pub Keys"
 }
+variable countIns {
+  description = "Count Instance"
+  default     = 1
+}
