@@ -3,7 +3,7 @@ variable project {
 }
 variable region {
   description = "Region"
-  default     = "europe-west-1"
+  default     = "europe-west1"
 }
 variable public_key_path {
   description = "Path to the public key used for ssh access"
