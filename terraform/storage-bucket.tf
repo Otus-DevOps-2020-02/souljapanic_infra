@@ -8,8 +8,9 @@ module "storage-bucket" {
   source  = "SweetOps/storage-bucket/google"
   version = "0.3.1"
 
-  name     = "storagebucketsoulja01"
-  location = var.region
+  name          = "storagebucketsoulja01"
+  location      = var.region
+  force_destroy = true
 }
 
 output storage-bucket_url {
