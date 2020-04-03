@@ -26,3 +26,11 @@ variable countIns {
   description = "Count Instance"
   default     = 1
 }
+variable app_disk_image {
+  description = "Disk image for reddit app"
+  default     = "ruby-base-1585913291"
+}
+variable db_disk_image {
+  description = "Disk image for reddit db"
+  default     = "db-base-1585913708"
+}
