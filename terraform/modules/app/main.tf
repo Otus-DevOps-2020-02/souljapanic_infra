@@ -18,6 +18,24 @@ resource "google_compute_instance" "app" {
   metadata = {
     ssh-keys = "den_pirozhkov:${file(var.public_key_path)}"
   }
+
+  connection {
+    type        = "ssh"
+    host        = self.network_interface[0].access_config[0].nat_ip
+    user        = "den_pirozhkov"
+    agent       = false
+    private_key = file(var.private_key_path)
+  }
+
+  provisioner "file" {
+    content     = templatefile("${path.module}/files/puma.service.tmpl", { DBPORT = 27017, DBIPADDR = var.dbipaddr })
+    destination = "/tmp/puma.service"
+  }
+
+  provisioner "remote-exec" {
+    script = "${path.module}/files/deploy.sh"
+  }
+
 }
 
 resource "google_compute_address" "app_ip" {
