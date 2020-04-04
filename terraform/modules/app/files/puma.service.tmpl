@@ -1,0 +1,14 @@
+[Unit]
+Description=Puma App
+After=network.target
+
+[Service]
+Environment=DATABASE_URL=${DBIPADDR}:${DBPORT}
+Type=simple
+User=den_pirozhkov
+WorkingDirectory=/home/den_pirozhkov/reddit
+ExecStart=/usr/local/bin/puma
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
