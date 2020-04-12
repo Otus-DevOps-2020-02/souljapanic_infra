@@ -246,5 +246,14 @@ terraform output - выводит переменные из файла outputs.t
 #### Основное задание:
 
 ```
-* Команда: ansible app -m command -a 'rm -rf ~/reddit2' удалили директорию с исходным кодом/ Повторный запуск playbook clone выполнил клонирование репозитория в диреткорию reddir2.
+* Команда: ansible app -m command -a 'rm -rf ~/reddit2' удалили директорию с исходным кодом/ Повторный запуск playbook clone выполнил клонирование репозитория в директорию reddir2.
+```
+
+#### Дополнительное задание:
+
+```
+* inventory.gcp.yml - файл для генерации динамического inventory
+* ansible-inventory -i inventory.gcp.yml --graph - просмотр inventory
+* ansible-inventory -i inventory.gcp.yml --list --output inventory.json - запись inventory в inventory.json
+* ansible all -i inventory.gcp.yml -m ping - проверка работоспособности ansible с динамическим inventory
 ```
