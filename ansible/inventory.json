@@ -1,0 +1,220 @@
+{
+    "_europe_west1_d": {
+        "hosts": [
+            "reddit-app",
+            "reddit-db"
+        ]
+    },
+    "_meta": {
+        "hostvars": {
+            "reddit-app": {
+                "ansible_host": "34.76.149.99",
+                "canIpForward": false,
+                "cpuPlatform": "Intel Haswell",
+                "creationTimestamp": "2020-04-11T20:10:16.605-07:00",
+                "deletionProtection": false,
+                "disks": [
+                    {
+                        "autoDelete": true,
+                        "boot": true,
+                        "deviceName": "persistent-disk-0",
+                        "diskSizeGb": "10",
+                        "guestOsFeatures": [
+                            {
+                                "type": "UEFI_COMPATIBLE"
+                            },
+                            {
+                                "type": "VIRTIO_SCSI_MULTIQUEUE"
+                            }
+                        ],
+                        "index": 0,
+                        "interface": "SCSI",
+                        "kind": "compute#attachedDisk",
+                        "licenses": [
+                            "https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1604-xenial"
+                        ],
+                        "mode": "READ_WRITE",
+                        "source": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/disks/reddit-app",
+                        "type": "PERSISTENT"
+                    }
+                ],
+                "fingerprint": "TMfTepwa3Oc=",
+                "id": "8820370769381898359",
+                "image": null,
+                "kind": "compute#instance",
+                "labelFingerprint": "42WmSpB8rSM=",
+                "machineType": "g1-small",
+                "machineType_selflink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/machineTypes/g1-small",
+                "metadata": {
+                    "ssh-keys": "den_pirozhkov:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/ifGD6wJfLQ8fnvYOc5O23kK4FJapdGU8n9jRPu2Cgrr6SpModaZjeZzz6PuxkGVEv1YKA/DWP/tx4k2WXv4sUj728Y54A9LnNDiLbqvBSv0HRwLxSdzOsouRmvLIX2kIYUxVi77X9npYOZC1B3JB5+vXNAekQOYs1GZb665dbQq3QKWMxPdKfI8Q7mJdzOmpX02VFUeijT88b3qUL4JhWyc9ciBDaKWgGt6VNE5RbGBqdo1UW0vytrG0i+nCZClIcaZZ2R8FlYV0Enxq2SjHmpb7eh9fo6Bka3ABD1zpdLI7efub/FQoNqqKBCCW25lgFiGKfp1iMnxYmHLR54OX352u2Q8SleQcnBsnSr31kQELLYROKXczOhDnVXIITfFRfMuh+fqRqoYiSMdwrLaWq6QqiH+tRCWd9q7qx6m3nFs4aYeo0sFCC5ezHuN0E46ZEy602OicS1RuwYXh2wW5hqyi9TmlzMXyIES2Z3DRxcf7gqfgEg3b065SAUogT10= den_pirozhkov\n"
+                },
+                "name": "reddit-app",
+                "networkInterfaces": [
+                    {
+                        "accessConfigs": [
+                            {
+                                "kind": "compute#accessConfig",
+                                "name": "external-nat",
+                                "natIP": "34.76.149.99",
+                                "networkTier": "PREMIUM",
+                                "type": "ONE_TO_ONE_NAT"
+                            }
+                        ],
+                        "fingerprint": "wGo8tGd08S0=",
+                        "kind": "compute#networkInterface",
+                        "name": "nic0",
+                        "network": {
+                            "name": "default",
+                            "region": "global",
+                            "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/global/networks/default"
+                        },
+                        "networkIP": "10.132.15.193",
+                        "subnetwork": {
+                            "name": "default",
+                            "region": "europe-west1",
+                            "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/regions/europe-west1/subnetworks/default"
+                        }
+                    }
+                ],
+                "project": "infra-271907",
+                "scheduling": {
+                    "automaticRestart": true,
+                    "onHostMaintenance": "MIGRATE",
+                    "preemptible": false
+                },
+                "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/instances/reddit-app",
+                "shieldedInstanceConfig": {
+                    "enableIntegrityMonitoring": true,
+                    "enableSecureBoot": false,
+                    "enableVtpm": true
+                },
+                "shieldedInstanceIntegrityPolicy": {
+                    "updateAutoLearnPolicy": true
+                },
+                "startRestricted": false,
+                "status": "RUNNING",
+                "tags": {
+                    "fingerprint": "M-ggixIz-AU=",
+                    "items": [
+                        "reddit-app"
+                    ]
+                },
+                "zone": "europe-west1-d",
+                "zone_selflink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d"
+            },
+            "reddit-db": {
+                "ansible_host": "35.240.125.95",
+                "canIpForward": false,
+                "cpuPlatform": "Intel Haswell",
+                "creationTimestamp": "2020-04-11T20:09:19.455-07:00",
+                "deletionProtection": false,
+                "disks": [
+                    {
+                        "autoDelete": true,
+                        "boot": true,
+                        "deviceName": "persistent-disk-0",
+                        "diskSizeGb": "10",
+                        "guestOsFeatures": [
+                            {
+                                "type": "UEFI_COMPATIBLE"
+                            },
+                            {
+                                "type": "VIRTIO_SCSI_MULTIQUEUE"
+                            }
+                        ],
+                        "index": 0,
+                        "interface": "SCSI",
+                        "kind": "compute#attachedDisk",
+                        "licenses": [
+                            "https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1604-xenial"
+                        ],
+                        "mode": "READ_WRITE",
+                        "source": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/disks/reddit-db",
+                        "type": "PERSISTENT"
+                    }
+                ],
+                "fingerprint": "oSgMVhfz88g=",
+                "id": "9068107906104113328",
+                "image": null,
+                "kind": "compute#instance",
+                "labelFingerprint": "42WmSpB8rSM=",
+                "machineType": "g1-small",
+                "machineType_selflink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/machineTypes/g1-small",
+                "metadata": {
+                    "ssh-keys": "den_pirozhkov:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/ifGD6wJfLQ8fnvYOc5O23kK4FJapdGU8n9jRPu2Cgrr6SpModaZjeZzz6PuxkGVEv1YKA/DWP/tx4k2WXv4sUj728Y54A9LnNDiLbqvBSv0HRwLxSdzOsouRmvLIX2kIYUxVi77X9npYOZC1B3JB5+vXNAekQOYs1GZb665dbQq3QKWMxPdKfI8Q7mJdzOmpX02VFUeijT88b3qUL4JhWyc9ciBDaKWgGt6VNE5RbGBqdo1UW0vytrG0i+nCZClIcaZZ2R8FlYV0Enxq2SjHmpb7eh9fo6Bka3ABD1zpdLI7efub/FQoNqqKBCCW25lgFiGKfp1iMnxYmHLR54OX352u2Q8SleQcnBsnSr31kQELLYROKXczOhDnVXIITfFRfMuh+fqRqoYiSMdwrLaWq6QqiH+tRCWd9q7qx6m3nFs4aYeo0sFCC5ezHuN0E46ZEy602OicS1RuwYXh2wW5hqyi9TmlzMXyIES2Z3DRxcf7gqfgEg3b065SAUogT10= den_pirozhkov\n"
+                },
+                "name": "reddit-db",
+                "networkInterfaces": [
+                    {
+                        "accessConfigs": [
+                            {
+                                "kind": "compute#accessConfig",
+                                "name": "external-nat",
+                                "natIP": "35.240.125.95",
+                                "networkTier": "PREMIUM",
+                                "type": "ONE_TO_ONE_NAT"
+                            }
+                        ],
+                        "fingerprint": "8jTcIzkOoJY=",
+                        "kind": "compute#networkInterface",
+                        "name": "nic0",
+                        "network": {
+                            "name": "default",
+                            "region": "global",
+                            "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/global/networks/default"
+                        },
+                        "networkIP": "10.132.15.192",
+                        "subnetwork": {
+                            "name": "default",
+                            "region": "europe-west1",
+                            "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/regions/europe-west1/subnetworks/default"
+                        }
+                    }
+                ],
+                "project": "infra-271907",
+                "scheduling": {
+                    "automaticRestart": true,
+                    "onHostMaintenance": "MIGRATE",
+                    "preemptible": false
+                },
+                "selfLink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d/instances/reddit-db",
+                "shieldedInstanceConfig": {
+                    "enableIntegrityMonitoring": true,
+                    "enableSecureBoot": false,
+                    "enableVtpm": true
+                },
+                "shieldedInstanceIntegrityPolicy": {
+                    "updateAutoLearnPolicy": true
+                },
+                "startRestricted": false,
+                "status": "RUNNING",
+                "tags": {
+                    "fingerprint": "NQyRUqL7UTU=",
+                    "items": [
+                        "reddit-db"
+                    ]
+                },
+                "zone": "europe-west1-d",
+                "zone_selflink": "https://www.googleapis.com/compute/v1/projects/infra-271907/zones/europe-west1-d"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "_europe_west1_d",
+            "app",
+            "db",
+            "ungrouped"
+        ]
+    },
+    "app": {
+        "hosts": [
+            "reddit-app"
+        ]
+    },
+    "db": {
+        "hosts": [
+            "reddit-db"
+        ]
+    }
+}
