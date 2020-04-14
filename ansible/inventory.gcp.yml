@@ -15,5 +15,6 @@ keyed_groups:
 groups:
   db: "'reddit-db' in name"
   app: "'reddit-app' in name"
+  packer: "'packer' in name"
 compose:
   ansible_host: networkInterfaces[0].accessConfigs[0].natIP

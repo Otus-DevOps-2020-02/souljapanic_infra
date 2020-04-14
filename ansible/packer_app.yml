@@ -10,9 +10,5 @@
 
   - name: "install pkgs"
     apt:
-      name: "{{ item }}"
+      name: ['ruby-full', 'ruby-bundler', 'build-essential']
       state: present
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
