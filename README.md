@@ -241,7 +241,7 @@ terraform output - выводит переменные из файла outputs.t
 * Развернули два instance, на одном запущено приложение, на другом база данных. Первым разворачивается база данных с помощью модуля db, получает внутренний ipadd и передаёт его, как переменную модули app и происходит развёртывание instance app. ipaddr instance db необходим для подключения приложения к базе данных. На instance  db так же выполняется правка настроек mongo, чтобы mongo слушал на всех интерфейсах (terraform/modules/db/files/deploy.sh).
 ```
 
-### ansible
+### ansible-1
 
 #### Основное задание:
 
@@ -256,4 +256,21 @@ terraform output - выводит переменные из файла outputs.t
 * ansible-inventory -i inventory.gcp.yml --graph - просмотр inventory
 * ansible-inventory -i inventory.gcp.yml --list --output inventory.json - запись inventory в inventory.json
 * ansible all -i inventory.gcp.yml -m ping - проверка работоспособности ansible с динамическим inventory
+```
+
+### ansible-2
+
+#### Основное задание:
+
+```
+* Научились использовать handlers в playbook
+* Научились использовать tag и limit для запуска playbook
+* Научились выполнять проверку playbook
+* Научились импортировать playbook'и
+```
+
+#### Дополнительное задание:
+
+```
+* Научились использовать ansible совместно с packer
 ```
