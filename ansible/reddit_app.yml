@@ -40,6 +40,20 @@
       enabled: yes
     tags: app-tag
 
+  - name: "Fetch the latest version of application code"
+    git:
+      repo: "https://github.com/express42/reddit.git"
+      dest: "/home/den_pirozhkov/reddit"
+      version: monolith
+    notify: "reload puma"
+    tags: deploy-tag
+
+  - name: "Bundle install"
+    bundler:
+      state: present
+      chdir: "/home/den_pirozhkov/reddit"
+    tags: deploy-tag
+
   handlers:
 
   - name: "restart mongod"
