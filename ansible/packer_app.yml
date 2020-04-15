@@ -1,0 +1,14 @@
+---
+
+- name: "Install Ruby and Byndler"
+
+  hosts: all
+
+  become: true
+
+  tasks:
+
+  - name: "install pkgs"
+    apt:
+      name: ['ruby-full', 'ruby-bundler', 'build-essential']
+      state: present
