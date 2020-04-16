@@ -5,32 +5,7 @@
   hosts: app
 
   vars:
-    db_host: "10.132.15.204"
+    db_host: "10.132.15.206"
 
-  tasks:
-
-  - name: "Add unit file for Puma"
-    become: true
-    copy:
-      src: "files/puma.service"
-      dest: "/etc/systemd/system/puma.service"
-    notify: "reload puma"
-
-  - name: "Add config for DB connection"
-    template:
-      src: "templates/db_config.j2"
-      dest: "/home/den_pirozhkov/db_config"
-
-  - name: "Enable puma"
-    become: true
-    systemd:
-      name: puma
-      enabled: yes
-
-  handlers:
-
-  - name: "reload puma"
-    become: true
-    systemd:
-      name: puma
-      state: restarted
+  roles:
+    - app
