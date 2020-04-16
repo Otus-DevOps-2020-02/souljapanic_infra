@@ -4,8 +4,5 @@
 
   hosts: app
 
-  vars:
-    db_host: "10.132.15.206"
-
   roles:
     - app
