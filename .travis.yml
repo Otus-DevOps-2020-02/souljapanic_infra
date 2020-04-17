@@ -10,7 +10,7 @@ install:
   - unzip -d bin packer.zip
   - curl -L -o terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
   - unzip -d bin terraform.zip
-  - pip install ansible-lint
+  - sudo pip install ansible-lint
   - export PATH="$(pwd)/bin:$PATH"
 
 jobs:
