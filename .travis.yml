@@ -10,6 +10,8 @@ install:
   - unzip -d bin packer.zip
   - curl -L -o terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
   - unzip -d bin terraform.zip
+  - curl -L -o tflint.zip https://github.com/terraform-linters/tflint/releases/download/v0.15.4/tflint_linux_amd64.zip
+  - unzip -d bin tflint.zip
   - sudo pip install ansible-lint
   - export PATH="$(pwd)/bin:$PATH"
 
@@ -31,6 +33,8 @@ jobs:
         - terraform validate prod
         - terraform init -backend=false stage
         - terraform init -backend=false prod
+        - tflint --var-file=stage/terraform.tfvars.example stage
+        - tflint --var-file=prod/terraform.tfvars.example prod
     - stage: test_ansible
       if: branch = master AND type IN (push, pull_request)
       script:
