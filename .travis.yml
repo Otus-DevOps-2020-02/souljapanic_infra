@@ -16,10 +16,12 @@ install:
 jobs:
   include:
     - stage: test_packer
+      if: branch = master AND type IN (push, pull_request)
       script:
         - packer validate -var-file=packer/variables.json.example packer/app.json
         - packer validate -var-file=packer/variables.json.example packer/db.json
     - stage: test_terraform
+      if: branch = master AND type IN (push, pull_request)
       script:
         - cd terraform
         - terraform init -backend=false
@@ -30,6 +32,7 @@ jobs:
         - terraform init -backend=false stage
         - terraform init -backend=false prod
     - stage: test_ansible
+      if: branch = master AND type IN (push, pull_request)
       script:
         - find ansible/playbooks -type f -name '*.yml' -print0 |  ansible-lint -x 401,701,703 --exclude=roles/jdauphant.nginx
     - stage: test_otus
