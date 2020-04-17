@@ -1,6 +1,8 @@
 # souljapanic_infra
 souljapanic Infra repository
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2020-02/souljapanic_infra?branch=master)](https://travis-ci.com/Otus-DevOps-2020-02/souljapanic_infra)
+
 ### Исследовать способ подключения к someinternalhost в одну строку:
 
 #### Решение \#1:
