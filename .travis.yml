@@ -31,7 +31,7 @@ jobs:
         - terraform init -backend=false prod
     - stage: test_ansible
       script:
-        - find ansible/playbooks -type f -name '*.yml' -print0 | ansible-lint --exclude=roles/jdauphant.nginx
+        - find ansible/playbooks -type f -name '*.yml' -print0 |  ansible-lint -x 401,701,703 --exclude=roles/jdauphant.nginx
     - stage: test_otus
       before_install:
         - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh |
