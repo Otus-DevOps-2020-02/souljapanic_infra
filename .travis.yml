@@ -22,6 +22,8 @@ jobs:
         - export PATH="$(pwd)/bin:$PATH"
       script:
         - cd terraform
+        - terraform get stage
+        - terraform get prod
         - terraform validate stage
         - terraform validate prod
         - terraform init -backend=false stage
