@@ -1,9 +1,40 @@
 dist: trusty
+
 sudo: required
+
 language: bash
-before_install:
-- curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh |
-  bash
+
+jobs:
+  include:
+    - stage: test_packer
+      install:
+        - curl -L -o packer.zip https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_linux_amd64.zip
+        - unzip -d bin packer.zip
+        - export PATH="$(pwd)/bin:$PATH"
+      script:
+        - packer validate -var-file=packer/variables.json.example packer/app.json
+        - packer validate -var-file=packer/variables.json.example packer/db.json
+    - stage: test_terraform
+      install:
+        - curl -L -o terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+        - unzip -d bin terraform.zip
+        - export PATH="$(pwd)/bin:$PATH"
+      script:
+        - cd terraform
+        - terraform validate stage
+        - terraform validate prod
+        - terraform init -backend=false stage
+        - terraform init -backend=false prod
+    - stage: test_ansible
+      install:
+        - pip install ansible-lint
+      script:
+        - find ansible/playbooks -type f -name '*.yml' -print0 | ansible-lint --exclude=roles/jdauphant.nginx
+    - stage: test_otus
+      before_install:
+        - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh |
+          bash
+
 notifications:
   slack:
     rooms:
