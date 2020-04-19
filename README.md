@@ -290,3 +290,36 @@ terraform output - выводит переменные из файла outputs.t
 ```
 * Научились выполнять настройку travis-ci
 ```
+
+#### ansible-4
+
+#### Основное задание
+
+```
+* Научились использовать vagrant для тестирования ansible playbook's и roles (ansible/Vagrantfile)
+* Научились использовать molecule для тестирвоания ролей
+* Научились использовать ansible роли для packer
+```
+
+##### Пример команд:
+
+```
+* cd ansible; vagrant up - настройка среды
+* cd ansible; vagrant destroy -f - удаление среды
+* cd ansible; provision appserver - выполнение playbook для app
+* cd ansible; provision dbserver - выполнение playbook для db
+* cd ansible/roles/db; molecule init scenario --scenario-name default -r db -d vagrant - инициализация ьщдусгду
+* cd ansible/roles/db; molecule create - создание среды (ansible/roles/db/molecule/default/molecule.yml)
+* cd ansible/roles/db; molecule list - просмотр созданной среды
+* cd ansible/roles/db; molecule converge - запуск playbook для тестирования (ansible/roles/db/molecule/default/playbook.yml)
+* cd ansible/roles/db; molecule verify - проверка тестов (ansible/roles/db/molecule/default/tests/test_default.py)
+* cd ansible/roles/db;molecule destroy - удаление среды
+```
+
+#### Дополнительное задание:
+
+```
+* Вынесли роль db в отдельный репозиторий: https://github.com/souljapanic/db
+* Пример файла travis-ci: .travis.yml.db.example
+* Подключили новый репозиторий к Slack (уведомления о проверки travis-ci)
+```
