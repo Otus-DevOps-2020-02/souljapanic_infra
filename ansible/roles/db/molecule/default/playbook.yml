@@ -1,13 +1,13 @@
 ---
 
-- name: "Install MongoDB"
-
-  hosts: all
+- name: Converge
 
   become: true
+
+  hosts: all
 
   vars:
     mongo_bind_ip: "0.0.0.0"
 
   roles:
-    - db
+    - role: db
