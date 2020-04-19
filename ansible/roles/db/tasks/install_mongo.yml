@@ -21,5 +21,6 @@
 - name: "run mongo"
   systemd:
     name: mongod
+    state: restarted
     enabled: yes
   tags: install
