@@ -4,6 +4,9 @@
 
   hosts: app
 
+  vars_files:
+    - ../vars/nginx.yml
+
   roles:
     - app
-    # - { role: jdauphant.nginx, become: yes }
+    - { role: jdauphant.nginx, become: yes }
