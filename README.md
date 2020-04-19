@@ -1,6 +1,8 @@
 # souljapanic_infra
 souljapanic Infra repository
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2020-02/souljapanic_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2020-02/souljapanic_infra)
+
 ### Исследовать способ подключения к someinternalhost в одну строку:
 
 #### Решение \#1:
@@ -273,4 +275,18 @@ terraform output - выводит переменные из файла outputs.t
 
 ```
 * Научились использовать ansible совместно с packer
+```
+
+### ansible-3
+
+#### Основное задание:
+
+```
+* Научились работать с ansible vault, community roles, вести репозиторий для разных окружений
+```
+
+#### Дополнительное задание:
+
+```
+* Научились выполнять настройку travis-ci
 ```
